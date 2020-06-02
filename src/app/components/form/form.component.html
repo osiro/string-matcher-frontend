@@ -1,0 +1,16 @@
+<mat-card>
+  <form (ngSubmit)="findMatches()">
+    <mat-form-field>
+      <mat-label>Text</mat-label>
+      <textarea #text matInput placeholder="Ex. This is a test" required (input)="updateText(text.value)"></textarea>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Subtext</mat-label>
+        <textarea #subtext matInput placeholder="Ex. test" required (input)="updateSubtext(subtext.value)"></textarea>
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary">Calculate Matches</button>
+  </form>
+</mat-card>
+

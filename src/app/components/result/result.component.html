@@ -1,0 +1,11 @@
+<mat-card>
+    <h1>Match Results</h1>
+
+    <ul *ngIf="hasResults$() | async; else elseBlock">
+        <li *ngFor="let position of matches$ | async">Position {{ position }}</li>
+    </ul>
+
+    <ng-template #elseBlock>
+        <p><strong>No matches found.</strong></p>
+    </ng-template>
+</mat-card>
