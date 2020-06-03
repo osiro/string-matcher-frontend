@@ -17,6 +17,8 @@ export class ResultComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.text$ = this.store.select(matchesSelectors.getText);
+    this.subtext$ = this.store.select(matchesSelectors.getSubtext);
     this.matches$ = this.store.select(matchesSelectors.getMatches);
   }
 
@@ -24,6 +26,22 @@ export class ResultComponent implements OnInit {
     return this.matches$.pipe(
       map((matches) => {
         return matches.length > 0;
+      })
+    );
+  }
+
+  hasText$(): Observable<boolean> {
+    return this.text$.pipe(
+      map((text) => {
+        return text.length > 0;
+      })
+    );
+  }
+
+  hasSubtext$(): Observable<boolean> {
+    return this.subtext$.pipe(
+      map((subtext) => {
+        return subtext.length > 0;
       })
     );
   }

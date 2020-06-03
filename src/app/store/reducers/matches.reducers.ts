@@ -21,6 +21,7 @@ export const reducers = createReducer(
     on(MatchesActions.updateText, (state, action) => ({ ...state, text: action.text })),
     on(MatchesActions.updateSubtext, (state, action) => ({ ...state, subtext: action.subtext })),
     on(MatchesActions.loadMatches, (state, action) => ({ ...state, matches: handleMatchResponse(action.matchResponse) })),
+    on(MatchesActions.clearMatches, (state) => ({ ...state, matches: [] }))
 )
 
 export function reducer(state: State | undefined, action: Action) {

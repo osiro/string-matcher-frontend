@@ -1,6 +1,9 @@
 <mat-card>
     <h1>Match Results</h1>
 
+    <p *ngIf="hasText$() | async"><strong>Text:</strong> {{ text$ | async }}</p>
+    <p *ngIf="hasSubtext$() | async"><strong>Subtext:</strong> {{ subtext$ | async }}</p>
+
     <ul *ngIf="hasResults$() | async; else elseBlock">
         <li *ngFor="let position of matches$ | async">Position {{ position }}</li>
     </ul>
